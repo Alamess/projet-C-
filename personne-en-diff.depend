@@ -1,0 +1,107 @@
+# depslib dependency file v1.0
+1680688925 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\main.cpp
+	<iostream>
+	"centre.h"
+
+1680689095 c:\users\asus\desktop\c++\tp5\personne-en-diff\centre.h
+	"livraison.h"
+	"sdf.h"
+	"medicale.h"
+	"administrateur .h"
+	"alimentation.h"
+	"hebergement.h"
+	<vector>
+	<typeinfo.h>
+	<fstream>
+	<iomanip>
+
+1680663045 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\personne.cpp
+	"personne.h"
+	<iostream>
+
+1680663033 c:\users\asus\desktop\c++\tp5\personne-en-diff\personne.h
+	<iostream>
+	<string>
+
+1680689387 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\centre.cpp
+	"centre.h"
+
+1680663233 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\personne en difficulte.cpp
+	"personne en difficulte.h"
+
+1680663265 c:\users\asus\desktop\c++\tp5\personne-en-diff\personne en difficulte.h
+	<iostream>
+	<string>
+	"personne.h"
+
+1680663975 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\sdf.cpp
+	"sdf.h"
+
+1680663749 c:\users\asus\desktop\c++\tp5\personne-en-diff\sdf.h
+	<iostream>
+	<string>
+	"personne en difficulte.h"
+
+1680685540 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\employee.cpp
+	"employee.h"
+
+1680664472 c:\users\asus\desktop\c++\tp5\personne-en-diff\employee.h
+	<iostream>
+	<string>
+	"personne.h"
+
+1680665571 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\medicale.cpp
+	"medicale.h"
+
+1680665560 c:\users\asus\desktop\c++\tp5\personne-en-diff\medicale.h
+	"employee.h"
+
+1680665033 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\administrateur .cpp
+	"administrateur .h"
+
+1680664866 c:\users\asus\desktop\c++\tp5\personne-en-diff\administrateur .h
+	"employee.h"
+
+1680665897 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\benevole.cpp
+	"benevole.h"
+
+1680665897 c:\users\asus\desktop\c++\tp5\personne-en-diff\benevole.h
+	"personne.h"
+
+1680668570 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\don.cpp
+	"don.h"
+	"benevole.h"
+
+1680668565 c:\users\asus\desktop\c++\tp5\personne-en-diff\don.h
+	"benevole.h"
+
+1680668590 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\livraison.cpp
+	"livraison.h"
+
+1680668600 c:\users\asus\desktop\c++\tp5\personne-en-diff\livraison.h
+	"don.h"
+
+1680667858 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\alimentation.cpp
+	"alimentation.h"
+
+1680667858 c:\users\asus\desktop\c++\tp5\personne-en-diff\alimentation.h
+	"service.h"
+	<iostream>
+
+1680667057 c:\users\asus\desktop\c++\tp5\personne-en-diff\service.h
+	<string>
+	<iostream>
+
+1680667380 c:\users\asus\desktop\c++\tp5\personne-en-diff\hebergement.h
+	"service.h"
+	<string>
+	<iostream>
+
+1680667380 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\hebergement.cpp
+	"hebergement.h"
+
+1680667091 source:c:\users\asus\desktop\c++\tp5\personne-en-diff\service.cpp
+	"service.h"
+	<string>
+	<iostream>
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="personne-en-diff" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/personne-en-diff" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="./" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/personne-en-diff" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="./" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="administrateur .cpp" />
+		<Unit filename="administrateur .h" />
+		<Unit filename="alimentation.cpp" />
+		<Unit filename="alimentation.h" />
+		<Unit filename="benevole.cpp" />
+		<Unit filename="benevole.h" />
+		<Unit filename="centre.cpp" />
+		<Unit filename="centre.h" />
+		<Unit filename="don.cpp" />
+		<Unit filename="don.h" />
+		<Unit filename="employee.cpp" />
+		<Unit filename="employee.h" />
+		<Unit filename="hebergement.cpp" />
+		<Unit filename="hebergement.h" />
+		<Unit filename="livraison.cpp" />
+		<Unit filename="livraison.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="medicale.cpp" />
+		<Unit filename="medicale.h" />
+		<Unit filename="personne en difficulte.cpp" />
+		<Unit filename="personne en difficulte.h" />
+		<Unit filename="personne.cpp" />
+		<Unit filename="personne.h" />
+		<Unit filename="sdf.cpp" />
+		<Unit filename="sdf.h" />
+		<Unit filename="service.cpp" />
+		<Unit filename="service.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
