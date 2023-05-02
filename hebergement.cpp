@@ -1,6 +1,6 @@
 #include "hebergement.h"
 
-  Hebergement::Hebergement(int a,string b,string d,int c,int id_h,string date_d,string date_f,string type_h,string des): Service( a,b,d,c)
+  Hebergement::Hebergement(int a,string b,int id_h,string date_d,string date_f,string type_h,string des): Service( a,b)
  {
 
     id_Hebergement=id_h;
@@ -51,11 +51,16 @@ ostream& operator<<(ostream& out  ,Hebergement& h)
 {
     Service *s=&h;
     out<<*s;       // appel de la méthode afficher de la classe de base
-    out << "ID Hebergement : " << h.id_Hebergement << endl;
-    out << "Date début : " << h.date_debut << endl;
-    out << "Date fin : " << h.date_fin << endl;
-    out << "Type d'hébergement : " << h.type_heb << endl;
-    out << "Description : " << h.description << endl;
+    cout << "ID Hebergement : ";
+    out<< h.id_Hebergement << endl;
+    cout << "Date début : ";
+    out<< h.date_debut << endl;
+    cout << "Date fin : ";
+    out<< h.date_fin << endl;
+    cout << "Type d'hébergement : ";
+    out<< h.type_heb << endl;
+    cout << "Description : ";
+    out<< h.description << endl;
     return out;
 }
 Hebergement::~Hebergement(void)

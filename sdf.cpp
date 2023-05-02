@@ -37,8 +37,10 @@ ostream& operator<<(ostream& out ,sdf& s)
 {
     personne_en_difficulte *p=&s ;
     out<< *p ;
-    out <<"duree:"<< s.duree <<endl;
-    out <<"motif:"<< s.motif <<endl;
+    cout <<"duree:";
+    out<< s.duree <<endl;
+    cout <<"motif:";
+    out<< s.motif <<endl;
     return out;
 }
 

@@ -35,7 +35,8 @@ ostream& operator<<(ostream& out ,personne_en_difficulte& p)
     cout<<"personne en diff "<<endl ;
     personne *pt=&p ;
     out<< *pt ;
-    out <<"difficulte :"<< p.diff <<endl;
+    cout <<"difficulte :" ;
+    out<<p.diff <<endl;
     return out ;
 }
 void personne_en_difficulte::afficher()
@@ -44,6 +45,26 @@ void personne_en_difficulte::afficher()
 
     personne::afficher() ;
     cout <<"difficulte :"<< diff <<endl;
+}
+ istream& operator>>(istream&in  ,personne_en_difficulte*p )
+{
+    in>>p->nom ;
+    in>>p->prenom  ;
+    in>>p->id  ;
+    in>>p->age  ;
+    in >> p->diff ;
+    return in ;
+
+}
+ostream& operator<<(ostream& out ,personne_en_difficulte* p)
+{
+
+    out<<p->nom <<setw(10);
+    out<<p->prenom<<setw(10)  ;
+    out<<p->id <<setw(10);
+    out<<p->age <<setw(10) ;
+    out<<p->diff<<setw(10) ;
+    return out ;
 }
 
 personne_en_difficulte::~personne_en_difficulte()

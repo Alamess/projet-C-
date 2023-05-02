@@ -38,12 +38,14 @@ void benevole::afficher()
 }
 ostream& operator<<(ostream& out ,benevole& b)
 {
-    out<<"benevole "<<endl ;
+    cout<<"benevole "<<endl ;
 
     personne *p=&b;
     out<<*p; ;
-    out <<"numero de telephone :"<< b.num_tel <<endl;
-    out <<"disponibilite :"<< b.disponibilite <<endl;
+    cout <<"numero de telephone :";
+    out<< b.num_tel <<endl;
+    cout <<"disponibilite :";
+    out<< b.disponibilite <<endl;
     return out;
 }
 

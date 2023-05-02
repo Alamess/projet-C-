@@ -1,5 +1,6 @@
 #include "employee.h"
-
+int employee::nbr_Heber=0 ;
+vector<don_livree<Hebergement>> employee:: Serv ;
 employee::employee(string a,string b , int c , int d , int e ,string f,float g) : personne(a,b,c,d)
 {
 tel=e ;
@@ -27,6 +28,7 @@ void employee::saisir()
     cin >> salaire ;
 
 }
+
 istream& operator>>(istream&in  ,employee&p )
 {
     cout<<"saisir un employee"<<endl ;
@@ -58,16 +60,31 @@ void employee::afficher()
 }
 ostream& operator<<(ostream& out ,employee& e)
 {
-    out<<"employee "<<endl ;
+    cout<<"employee "<<endl ;
     personne *p=&e;
     out<<*p;
-    out <<"tel  :"<< e.tel <<endl;
-    out << "statut :"<<e.statut << endl ;
-    out << "salaire : "<<e.salaire<<endl ;
+    cout <<"tel  :";
+    out<<e.tel <<endl;
+    cout << "statut :";
+    out<<e.statut << endl ;
+    cout << "salaire : ";
+    out<<e.salaire<<endl ;
+
     return out;
 }
-
 employee::~employee()
 {
     //dtor
 }
+ void employee::ajouter_Heberg (don_livree<Hebergement> h)
+{
+    Serv.push_back(h) ;
+    nbr_Heber+=1 ;
+}
+ void employee::afficher_Heberg ()
+ {
+     for (int i=0 ;i<nbr_Heber;i++)
+    {
+        cout<< Serv[i]<<endl ;
+    }
+ }

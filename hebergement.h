@@ -15,16 +15,12 @@ class Hebergement: public Service
       string description;
     public:
 
-        Hebergement(int=0,string="",string="",int=0,int=0,string="",string="",string="",string="");
+        Hebergement(int=0,string="",int=0,string="",string="",string="",string="");
         void afficher();
-        friend ostream& operator<<(ostream&   ,Hebergement& );
+        friend ostream& operator<<(ostream&,Hebergement& );
         friend istream& operator>>(istream&,Hebergement&) ;
         void saisir();
         virtual ~Hebergement();
-
-    protected:
-
-    private:
 };
 
 #endif // HEBERGEMENT_H

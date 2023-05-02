@@ -42,13 +42,11 @@
 		<Unit filename="benevole.h" />
 		<Unit filename="centre.cpp" />
 		<Unit filename="centre.h" />
-		<Unit filename="don.cpp" />
 		<Unit filename="don.h" />
 		<Unit filename="employee.cpp" />
 		<Unit filename="employee.h" />
 		<Unit filename="hebergement.cpp" />
 		<Unit filename="hebergement.h" />
-		<Unit filename="livraison.cpp" />
 		<Unit filename="livraison.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="medicale.cpp" />

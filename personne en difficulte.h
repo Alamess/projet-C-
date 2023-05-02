@@ -16,6 +16,8 @@ protected :
         void afficher () ;
         friend istream& operator>>(istream&  ,personne_en_difficulte& ) ;
         friend ostream& operator<<(ostream& ,personne_en_difficulte& ) ;
+        friend istream& operator>>(istream&  ,personne_en_difficulte* ) ;
+        friend ostream& operator<<(ostream& ,personne_en_difficulte* ) ;
 
         virtual ~personne_en_difficulte();
         string getdiff(){return diff;} ;

@@ -24,10 +24,37 @@ ostream& operator<<(ostream& out ,administrateur& ad)
 {
         employee *e=&ad ;
         out<<*e ;
-        out<<"departement : administrateur" <<endl ;
+        cout<<"departement :";
+        out<< ad.departement <<endl ;
     return out;
 }
 administrateur ::~administrateur ()
 {
     //dtor
+}
+istream& operator>>(istream&in  ,administrateur*p )
+{
+
+    in>>p->nom ;
+    in>>p->prenom  ;
+    in>>p->id  ;
+    in>>p->age  ;
+    in>>p->tel ;
+    in>>p->statut ;
+    in>>p->salaire ;
+    in>>p->departement ;
+    return in ;
+}
+ostream& operator<<(ostream& out ,administrateur* p)
+{
+    out <<p->prenom <<setw(10);
+    out << p->nom <<setw(10);
+    out << p->id <<setw(10);
+    out<< p->age <<setw(10) ;
+    out << p->tel <<setw(10);
+    out <<p->statut << setw(10) ;
+    out <<p->salaire<<setw(10) ;
+    out<<p->departement<<setw(10) ;
+
+    return out;
 }

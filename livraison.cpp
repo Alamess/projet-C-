@@ -1,6 +1,6 @@
 #include "livraison.h"
 
-livraison::livraison() : don_livree(),type_livraison(""),date_livraison(""),id_livraison(0)
+livraison::livraison() : don_livree(),type_livraison(),date_livraison(),id_livraison()
 {
     //ctor
 }
@@ -26,7 +26,3 @@ ostream& operator<<(ostream& out  ,livraison& l)
     return out;
 }
 
-livraison::~livraison()
-{
-    //dtor
-}

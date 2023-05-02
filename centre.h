@@ -10,6 +10,8 @@
 #include <typeinfo.h>
 #include<fstream>
 #include<iomanip>
+#include<list>
+#include<algorithm>
 using namespace std;
 
 
@@ -21,10 +23,9 @@ class Centre
   int nbre_total_en_diff;
   int nbr_dispo;
   int nbr_employe;
-  int nbr_service ;
    vector<employee*> emp;
-   vector<Service*> serv;
-   vector<livraison> livr;
+   list<don_livree<float>> livr;
+   list<don_livree<float>>::iterator it ;
    vector<personne_en_difficulte*> pers;
 
     public:
@@ -33,9 +34,9 @@ class Centre
         friend istream& operator>>(istream&  ,Centre* ) ;
         void ajouter_pers(personne_en_difficulte);
         void ajouter_emp(employee*) ;
-        int recherche_pers(int ) ;
-        void operator+(const livraison&) ;
-        void ajouter_livraison(livraison);
+        void recherche_pers(int ) ;
+        void operator+(const don_livree<float>&) ;
+        void ajouter_livraison(don_livree<float>);
         float calcul_budget();
         int supprimer_pers(int ) ;
         friend ostream& operator<<(ostream& ,Centre& ) ;

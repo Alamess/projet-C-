@@ -9,18 +9,19 @@ Don::Don( ): donneur()
 }
 istream& operator>>(istream&in,Don&d)
 {
-    cout<<"saisir l'id de don"<<endl ;
+    cout<<"saisir l'id de don : "<<endl ;
     in>>d.id_don ;
-    cout<<"saisir monnaie"<<endl ;
+    cout<<"saisir monnaie : "<<endl ;
     in>> d.monnaie ;
+    cout<<"saisir donneur : "<<endl ;
     in>> d.donneur ;
     return in ;
 }
 ostream& operator<<(ostream& out ,Don& d)
 {
-    out<<"id don est"<<d.id_don<<endl ;
-    out<<"monnaie est"<<d.monnaie<<endl ;
-    out<<"le donnneur est"<<d.donneur ;
+    out<<"id don est : "<<d.id_don<<endl ;
+    out<<"monnaie est : "<<d.monnaie<<endl ;
+    out<<"le donneur est : "<<d.donneur ;
 
     return out;
 }

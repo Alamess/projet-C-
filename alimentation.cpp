@@ -1,6 +1,6 @@
 #include "alimentation.h"
 
-Alimentation::Alimentation(int a,string b,string d,int c ,int id_p,string nom_p,int nb_p):Service( a,b,d,c)
+Alimentation::Alimentation(int a,string b ,int id_p,string nom_p,int nb_p):Service( a,b)
 {
 
 
@@ -41,9 +41,12 @@ Alimentation::Alimentation(int a,string b,string d,int c ,int id_p,string nom_p,
 ostream& operator<<(ostream& out  ,Alimentation& a)
 {Service *s=&a;
     out<<*s;
-    out << "ID Plat : " << a.id_plat << endl;
-    out << "Nom Plat : " << a.nom_plat << endl;
-    out << "Nombre de plats : " << a.nb_plat << endl;
+    cout << "ID Plat : " ;
+    out<< a.id_plat << endl;
+    cout << "Nom Plat : " ;
+    out<< a.nom_plat << endl;
+    cout << "Nombre de plats : " ;
+    out<< a.nb_plat << endl;
 
 }
 Alimentation::~Alimentation(void)

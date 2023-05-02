@@ -8,8 +8,6 @@ Centre::Centre(int a,string b,string c , float s , int e,int f,int g ,int l)
     nbre_total_en_diff = e ;
     nbr_dispo = f ;
     nbr_employe= g ;
-    nbr_service=l ;
-
 }
 istream& operator>>(istream& in ,Centre& c)
 {
@@ -25,8 +23,6 @@ istream& operator>>(istream& in ,Centre& c)
     in>>c.nbr_dispo ;
     cout<<"Donner le nombre d'employers"<<endl ;
     in>>c.nbr_employe ;
-    cout<<"Donner le nombre de services :"<<endl ;
-    in>>c.nbr_service ;
     for(int i=0;i<c.nbre_total_en_diff;i++)
     {
         personne_en_difficulte s ;
@@ -63,22 +59,6 @@ istream& operator>>(istream& in ,Centre& c)
         }
         in>>*q ;
         c.emp.push_back(q) ;
-    }
-
-    cout<<"remplir tableau service "<<endl ;
-
-    for (int i=0 ;i<c.nbr_employe;i++)
-    {
-        string x ;
-        Service* q ;
-        cout<<"alimentaire ou hebergement ? " <<endl ;
-        cin >>x ;
-        if(x=="alimentaire")
-            q=new Alimentation ;
-        else
-            q=new Hebergement ;
-        q->saisir() ;
-        c.serv.push_back(q);
     }
     return in ;
 }
@@ -122,43 +102,24 @@ void Centre::ajouter_pers(personne_en_difficulte s)
         cout<<"il n'y a pas de disponibilite"<<endl ;
 
 }
-int Centre::recherche_pers(int id)
+void Centre::recherche_pers(int id)
 {
-        for (int i=0;i<nbr_employe;i++)
-        {
-            if(id==emp[i]->getid())
-            {
-                emp[i]->afficher() ;
-                return 1 ;
-            }
-        }
-
-
-        for (int i=0;i<nbre_total_en_diff;i++)
-        {
-            if(id==pers[i]->getid())
-            {
-                pers[i]->afficher() ;
-                return 1 ;
-            }
-        }
-
-    cout<<"il n'y a pas ce personne "<<endl ;
+        personne::rechercher_personne(id) ;
 }
- void Centre::ajouter_livraison(livraison h)
+ void Centre::ajouter_livraison(don_livree<float> h)
  {
      livr.push_back(h) ;
  }
- void Centre::operator+(const livraison& l)
+ void Centre::operator+(const don_livree<float>& l)
  {
      livr.push_back(l) ;
  }
  float Centre::calcul_budget()
  {
      float s=0 ;
-     for (int i=0;i< livr.size();i++)
+     for ( it=livr.begin() ;it!=livr.end();it++)
      {
-        s=s+livr[i].getdonmonnaie() ;
+        s=s+it->getmonnaie() ;
      }
      return s ;
  }
@@ -202,8 +163,6 @@ ostream& operator<<(ostream& out ,Centre& c)
     out<<c.nbr_dispo <<endl;
     cout<<"Donner le nombre d'employers" ;
     out<<c.nbr_employe <<endl;
-    cout<<"Donner le nombre de services :"<<endl ;
-    out<<c.nbr_service ;
     for(int i=0;i<c.nbre_total_en_diff;i++)
     {
         c.pers[i]->afficher() ;
@@ -211,22 +170,28 @@ ostream& operator<<(ostream& out ,Centre& c)
     cout << "Afficher tableau employee"<<endl ;
     for(int i=0;i<c.nbr_employe ;i++)
     {
-        c.emp[i]->afficher() ;
+        string h ;
+        out<<*(c.emp[i]) ;
     }
 
-    cout<<"Afficher tableau service "<<endl ;
+    cout<<"Afficher tableau don liquide "<<endl ;
 
-    for (int i=0 ;i<c.nbr_employe;i++)
+    for ( c.it=c.livr.begin() ;c.it!=c.livr.end();c.it++)
     {
-       c.serv[i]->afficher();
+        c.livr.sort();
+       out<<*(c.it)<<endl;
     }
-    cout<<"Afficher tableau don "<<endl ;
-
-    for (int i=0 ;i<c.livr.size();i++)
-    {
-       out<<c.livr[i];
-    }
-    return out ;
+    cout<<"Afficher tableau don d'Hebergement "<<endl ;
+     for(int i=0 ; i<employee::getnbr_Heber();i++)
+     {
+         out<<employee::getserv()[i]<<endl ;
+     }
+     cout<<"Afficher tableau don d'Alimentation "<<endl ;
+     for(int i=0 ; i<medicale::getnbr_alim();i++)
+     {
+         out<<medicale::getalim()[i]<<endl ;
+     }
+     return out ;
 }
 Centre::~Centre()
 {
@@ -235,78 +200,30 @@ Centre::~Centre()
 istream& operator>>(istream&in ,Centre*c )
 {
     in.seekg(0) ;
-    cout<<"id_centre :"<<endl ;
     in>>c->id_centre ;
-    cout<<"nom_centre :"<<endl ;
     in>>c->nom_centre ;
-    cout<<"Donner l adresse du centre"<<endl ;
     in>>c->adresse_centre ;
-    cout<<"nbre des personnes en difficultes"<<endl ;
     in>>c->nbre_total_en_diff;
-    cout<<"nombre de place disponible :"<<endl ;
     in>>c->nbr_dispo ;
-    cout<<"Donner le nombre d'employers"<<endl ;
     in>>c->nbr_employe ;
-    cout<<"Donner le nombre de services :"<<endl ;
-    in>>c->nbr_service ;
-    for(int i=0;i<c->nbre_total_en_diff;i++)
-    {
-        personne_en_difficulte s ;
-        personne_en_difficulte*q ;
-        cin>>s ;
-        if ((s.getdiff())=="sdf")
-            {
-                long x;
-                string y ;
-                cout<<"duree :"<<endl ;
-                cin>>x ;
-                cout<<"motif :"<<endl ;
-                cin>>y ;
-                q = new sdf (s.getnom(),s.getprenom(),s.getid(),s.getage(),x,y) ;
-
-            }
-        else q= new personne_en_difficulte (s) ;
-        c->pers.push_back(q) ;
-    }
     for(int i=0;i<c->nbre_total_en_diff;i++)
     {
         in>>*(c->pers[i]) ;
     }
-    cout << "remplir tableau employee"<<endl ;
     for(int i=0;i<c->nbr_employe ;i++)
     {
-        string x ;
-        employee*q ;
-        cout << "administrateur ou medicale ?"<< endl ;
-        cin>>x ;
-        if(x=="administrateur")
-        {
-            q=new administrateur ;
-        }
-        else
-        {
-            q= new medicale ;
-        }
-        in>>*q ;
-        c->emp.push_back(q) ;
+        in>>*(c->emp[i]);
     }
-
-    cout<<"remplir tableau service "<<endl ;
-
-    for (int i=0 ;i<c->nbr_employe;i++)
-    {
-        string x ;
-        Service* q ;
-        cout<<"alimentaire ou hebergement ? " <<endl ;
-        cin >>x ;
-        if(x=="alimentaire")
-            q=new Alimentation ;
-        else
-            q=new Hebergement ;
-        q->saisir() ;
-        c->serv.push_back(q);
-    }
+     for(int i=0 ; i<employee::getnbr_Heber();i++)
+     {
+         in>>employee::getserv()[i] ;
+     }
+     for(int i=0 ; i<medicale::getnbr_alim();i++)
+     {
+         in>>medicale::getalim()[i] ;
+     }
     return in ;
+
 }
 void Centre::creer(fstream&f)
 {
@@ -329,41 +246,33 @@ void Centre::afficher(fstream&f)
 }
 ostream& operator<<(ostream& out ,Centre*c)
 {
-    cout<<"id_centre :"<<endl ;
     out<<c->id_centre<<setw(10) ;
-    cout<<"nom_centre :"<<endl ;
     out<<c->nom_centre<<setw(10) ;
-    cout<<"Donner l adresse du centre"<<endl ;
     out<<c->adresse_centre <<setw(10);
-    cout<<"nbre des personnes en difficultes"<<endl ;
     out<<c->nbre_total_en_diff<<setw(10);
-    cout<<"nombre de place disponible :"<<endl ;
     out<<c->nbr_dispo<<setw(10) ;
-    cout<<"Donner le nombre d'employers"<<endl ;
     out<<c->nbr_employe<<setw(10) ;
-    cout<<"Donner le nombre de services :"<<endl ;
-    out<<c->nbr_service<<setw(10) ;
     for(int i=0;i<c->nbre_total_en_diff;i++)
     {
         out<<*(c->pers[i])<<setw(10);
     }
-    cout << "Afficher tableau employee"<<endl ;
     for(int i=0;i<c->nbr_employe ;i++)
     {
         out<<*(c->emp[i])<<setw(10) ;
     }
-
-    cout<<"Afficher tableau service "<<endl ;
-
-    for (int i=0 ;i<c->nbr_employe;i++)
+    for ( c->it=c->livr.begin() ;c->it!=c->livr.end();c->it++)
     {
-      out<< *(c->serv[i])<<setw(10);
+        c->livr.sort();
+       out<<*(c->it)<<setw(10);
     }
-    cout<<"Afficher tableau don "<<endl ;
-
-    for (int i=0 ;i<c->livr.size();i++)
-    {
-       out<<c->livr[i]<<setw(10);
-    }
+     for(int i=0 ; i<employee::getnbr_Heber();i++)
+     {
+         out<<employee::getserv()[i]<<setw(10) ;
+     }
+     for(int i=0 ; i<medicale::getnbr_alim();i++)
+     {
+         out<<medicale::getalim()[i]<<setw(10) ;
+     }
     return out ;
 }
+
