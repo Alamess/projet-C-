@@ -1,12 +1,11 @@
 #include "hebergement.h"
 
-  Hebergement::Hebergement(int a,string b,int id_h,string date_d,string date_f,string type_h,string des): Service( a,b)
+  Hebergement::Hebergement(int a,int b,int id_h,string date_d,string date_f,string type_h): Service( a,b)
  {
 
     id_Hebergement=id_h;
     date_debut=date_d;
     date_fin=date_f;
-    description=des;
     type_heb=type_h;
 
  }
@@ -18,8 +17,6 @@ void Hebergement::saisir()
     cin>>date_debut;
     cout<<"donner date de fin"<<endl;
     cin>>date_fin;
-    cout<<"donner la decription"<<endl;
-    cin>>description;
     cout<<"donner le type d hebergement"<<endl;
     cin>>type_heb;
 }
@@ -33,8 +30,6 @@ void Hebergement::saisir()
     in>>s.date_debut;
     cout<<"donner date de fin"<<endl;
     in>>s.date_fin;
-    cout<<"donner la decription"<<endl;
-    in>>s.description;
     cout<<"donner le type d hebergement"<<endl;
     in>>s.type_heb;
     return in ;
@@ -45,8 +40,7 @@ void Hebergement::afficher() {
     cout << "Date début : " << date_debut << endl;
     cout << "Date fin : " << date_fin << endl;
     cout << "Type d'hébergement : " << type_heb << endl;
-    cout << "Description : " << description << endl;
-}
+    }
 ostream& operator<<(ostream& out  ,Hebergement& h)
 {
     Service *s=&h;
@@ -59,8 +53,6 @@ ostream& operator<<(ostream& out  ,Hebergement& h)
     out<< h.date_fin << endl;
     cout << "Type d'hébergement : ";
     out<< h.type_heb << endl;
-    cout << "Description : ";
-    out<< h.description << endl;
     return out;
 }
 Hebergement::~Hebergement(void)

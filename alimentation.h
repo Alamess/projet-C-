@@ -11,7 +11,7 @@ class Alimentation: public Service
 
     public:
 
-        Alimentation(int=0,string="",int=0,string="",int=0);
+        Alimentation(int=0,int=0,int=0,string="",int=0);
         void afficher();
         void saisir();
         friend istream& operator>>(istream&,Alimentation&) ;

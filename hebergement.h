@@ -12,10 +12,9 @@ class Hebergement: public Service
       string date_debut;
       string date_fin;
       string type_heb;
-      string description;
     public:
 
-        Hebergement(int=0,string="",int=0,string="",string="",string="",string="");
+        Hebergement(int=0,int=0,int=0,string="",string="",string="");
         void afficher();
         friend ostream& operator<<(ostream&,Hebergement& );
         friend istream& operator>>(istream&,Hebergement&) ;

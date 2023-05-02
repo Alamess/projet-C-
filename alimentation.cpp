@@ -1,6 +1,6 @@
 #include "alimentation.h"
 
-Alimentation::Alimentation(int a,string b ,int id_p,string nom_p,int nb_p):Service( a,b)
+Alimentation::Alimentation(int a,int b ,int id_p,string nom_p,int nb_p):Service( a,b)
 {
 
 
